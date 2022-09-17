@@ -1,0 +1,19 @@
+// Menu
+
+.menu-list {
+    min-width: 224px;
+
+    .menu-popper {
+        padding: 8px 0;
+    }
+
+    .menu-item {
+        padding: 10px 8px 10px 16px;
+        width: 100%;
+        border: none;
+        justify-content: flex-start;
+        margin-left: 0;
+    }
+}
+
+// Menu items

@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRouter } from '~/routers';
 
-import { DefaultLayout, HeaderOnly } from '~/components/Layout';
+import { DefaultLayout, HeaderOnly } from '~/components/Layouts';
 
 function App() {
     return (
@@ -24,7 +24,6 @@ function App() {
 
                             default:
                                 Layout = DefaultLayout;
-                                break;
                         }
                         return (
                             <Route

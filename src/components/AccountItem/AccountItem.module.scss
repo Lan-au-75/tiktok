@@ -1,0 +1,61 @@
+:root {
+    --avatar-width-height: 40px;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    -webkit-box-align: center;
+    padding: 9px 16px;
+    cursor: pointer;
+    &:hover {
+        background: rgba(22, 24, 35, 0.03);
+    }
+
+    .avatar {
+        width: var(--avatar-width-height);
+        height: var(--avatar-width-height);
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 12px;
+        color: rgb(255, 255, 255);
+        overflow: hidden;
+        background-color: #88888880;
+    }
+
+    .info {
+        // flex: 1;
+        width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .name {
+        line-height: 22px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        span {
+            width: 20px;
+            font-size: 1.6rem;
+            color: #161823;
+            font-weight: 600;
+        }
+        * {
+            color: #20d5ec;
+            font-size: 1.4rem;
+            margin-left: 4px;
+        }
+    }
+
+    .description {
+        font-size: 1.3rem;
+        line-height: 20px;
+        color: var(--search-label-color);
+        font-weight: 400;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
