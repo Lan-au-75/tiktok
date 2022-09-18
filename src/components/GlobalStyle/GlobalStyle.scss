@@ -8,7 +8,8 @@
     --default-layout-header-height: 60px;
     --default-layout-max-width: 1150px;
     --default-layout-sidebar-width: 356px;
-    --text-color: #333;
+    --default-layout-horizontal-spacer: 24px;
+    --text-color: #161823;
     --search-label-color: #16182380;
     --while-color: #fff;
 }
@@ -28,6 +29,7 @@ body {
     text-rendering: optimizeSpeed;
     line-height: 1.5;
     color: var(--text-color);
+    -webkit-tap-highlight-color: transparent;
 }
 
 button,
@@ -38,6 +40,27 @@ input,
 }
 
 a[href] {
-    color: var(--text-color);
     text-decoration: none;
+}
+
+// Custom Tippy Tooltips
+
+body {
+    .tippy-box {
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+        background-color: rgba(84, 84, 84, 0.92);
+        color: rgb(255, 255, 255);
+        padding: 4px;
+    }
+
+    .tippy-arrow {
+        color: rgba(84, 84, 84, 0.92);
+    }
+
+    .tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
+        top: -8px;
+    }
 }

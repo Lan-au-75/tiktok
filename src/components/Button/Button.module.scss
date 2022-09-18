@@ -1,10 +1,12 @@
 .wrapper {
     display: flex;
     align-items: center;
+    -webkit-box-align: center;
     justify-content: center;
     border-radius: 2px;
     padding: 6px 8px;
     font-size: 1.6rem;
+    color: var(--text-color);
     font-weight: 500;
     line-height: 22px;
     min-width: 110px;
@@ -39,17 +41,6 @@
     }
 }
 
-.outline {
-    font-weight: 500;
-    color: var(--primary);
-    border-color: currentColor;
-
-    &:hover {
-        border-color: currentColor;
-        background-color: rgba(254, 44, 85, 0.06);
-    }
-}
-
 .primary {
     min-width: 100px;
     border: none;
@@ -64,6 +55,17 @@
 
 .primary.rounded {
     border-radius: 999px;
+}
+
+.outline {
+    font-weight: 500;
+    color: var(--primary);
+    border-color: currentColor;
+
+    &:hover {
+        border-color: currentColor;
+        background-color: rgba(254, 44, 85, 0.06);
+    }
 }
 
 // Button sizes

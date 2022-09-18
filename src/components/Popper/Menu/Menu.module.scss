@@ -6,7 +6,11 @@
     .menu-popper {
         padding: 8px 0;
     }
+}
 
+// Menu items
+
+.menu-list {
     .menu-item {
         padding: 10px 8px 10px 16px;
         width: 100%;
@@ -14,6 +18,39 @@
         justify-content: flex-start;
         margin-left: 0;
     }
+
+    .separate {
+        border-top: 1px solid rgba(22, 24, 35, 0.12);
+    }
 }
 
-// Menu items
+// Header
+
+.header {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    margin-top: -8px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.back-btn {
+    margin-left: 28px;
+    width: 20px;
+    height: 20px;
+    font-size: 1.4rem;
+    line-height: 20px;
+    background: none;
+    cursor: pointer;
+}
+
+.header-title {
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 22px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}

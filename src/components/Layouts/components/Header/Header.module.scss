@@ -25,7 +25,7 @@
         height: inherit;
         max-width: var(--default-layout-max-width, 11150px);
         margin: auto;
-        padding: 0 24px 0 20px;
+        padding: 0 var(--default-layout-horizontal-spacer) 0 20px;
         overflow: hidden;
     }
 }
@@ -116,6 +116,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    .action-btn {
+        font-size: 2.4rem;
+        color: var(--text-color);
+        background: transparent;
+        margin-left: 16px;
+        cursor: pointer;
+
+        padding: 3px 3px 0;
+    }
+
+    .header-avatar {
+        margin-left: 24px;
+        width: 32px;
+        height: 32px;
+        background: center no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+        border-radius: 50%;
+        cursor: pointer;
+    }
 
     .header-ellipsis {
         background-color: transparent;
