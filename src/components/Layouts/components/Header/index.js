@@ -6,12 +6,11 @@ import {
     faCircleXmark,
     faEllipsisVertical,
     faGear,
-    faMagnifyingGlass,
     faPlus,
     faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
-import { faAppStoreIos, faTelegram, faTiktok } from '@fortawesome/free-brands-svg-icons';
-import { faCircleQuestion, faKeyboard, faMessage, faUser } from '@fortawesome/free-regular-svg-icons';
+import { faAppStoreIos, faTiktok } from '@fortawesome/free-brands-svg-icons';
+import { faCircleQuestion, faKeyboard, faUser } from '@fortawesome/free-regular-svg-icons';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import HeadlessTippy from '@tippyjs/react/headless';
@@ -22,6 +21,8 @@ import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
+import { InboxIcon, MessagesIcon, SearchIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -192,7 +193,7 @@ function Header() {
                         <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
 
                         <button className={cx('search-btn')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                            <SearchIcon></SearchIcon>
                         </button>
                     </div>
                 </HeadlessTippy>
@@ -204,13 +205,13 @@ function Header() {
 
                             <Tippy delay={[0, 200]} content="Messages" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faTelegram}></FontAwesomeIcon>
+                                    <MessagesIcon></MessagesIcon>
                                 </button>
                             </Tippy>
 
                             <Tippy content="Inbox" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faMessage}></FontAwesomeIcon>
+                                    <InboxIcon></InboxIcon>
                                 </button>
                             </Tippy>
                         </>
@@ -223,9 +224,9 @@ function Header() {
 
                     <Menu items={currentUser ? USERMENU : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('header-avatar')}
-                                src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/be22b8593ea95c8835d47f4b5309ec16~c5_100x100.jpeg?x-expires=1663657200&x-signature=PAxkoHSFK0idJXWsoQIeYV4t5vk%3D"
+                                src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/be22b8593ea95c8835d47f4b5309ec16~c5_100x100.jpeg?x-expires=1663740000&x-signature=s4epqAg4kxAj3Hrl%2F4xHXvZ3Dck%3D"
                                 alt="Dat Villa"
                             />
                         ) : (

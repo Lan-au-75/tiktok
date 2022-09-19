@@ -6,8 +6,10 @@
     border-radius: 2px;
     padding: 6px 8px;
     font-size: 1.6rem;
+    font-family: ProximaNova, sans-serif;
+    font-weight: 600;
     color: var(--text-color);
-    font-weight: 500;
+    text-rendering: optimizeSpeed;
     line-height: 22px;
     min-width: 110px;
     min-height: 36px;
