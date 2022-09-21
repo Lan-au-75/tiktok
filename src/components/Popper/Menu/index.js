@@ -38,6 +38,7 @@ function Menu({ children, items = [], onChange = () => {} }) {
         <Tippy
             appendTo={document.body}
             interactive={true}
+            hideOnClick={false}
             delay={[null, 600]}
             offset={[12, 12]}
             placement="top-end"

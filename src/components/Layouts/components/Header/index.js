@@ -1,8 +1,9 @@
-import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightToBracket, faEllipsisVertical, faGear, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faAppStoreIos, faTiktok } from '@fortawesome/free-brands-svg-icons';
 import { faCircleQuestion, faKeyboard, faUser } from '@fortawesome/free-regular-svg-icons';
+import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
@@ -13,6 +14,7 @@ import Menu from '~/components/Popper/Menu';
 import { InboxIcon, MessagesIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../Search';
+import routersConfig from '~/config/routers';
 
 const cx = classNames.bind(styles);
 
@@ -149,7 +151,9 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <img src={images.logo} alt="logo-Tiktok" style={{ cursor: 'pointer' }} />
+                <Link to={routersConfig.home} className={cx('header-left')}>
+                    <img src={images.logo} alt="logo-Tiktok" style={{ cursor: 'pointer' }} />
+                </Link>
 
                 <Search></Search>
 
