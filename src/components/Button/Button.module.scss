@@ -18,7 +18,7 @@
     border: 1px solid #1618231f;
     background: var(--while-color);
     &:hover {
-        background-color: #16182308;
+        background-color: rgba(22, 24, 35, 0.03);
     }
 
     + .wrapper {

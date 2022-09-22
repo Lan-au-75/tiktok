@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import Tippy from '@tippyjs/react/headless';
+import HeadlessTippy from '@tippyjs/react/headless';
 import { useState } from 'react';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
@@ -35,38 +35,39 @@ function Menu({ children, items = [], onChange = () => {} }) {
     };
 
     return (
-        <Tippy
-            appendTo={document.body}
-            interactive={true}
-            hideOnClick={false}
-            delay={[null, 600]}
-            offset={[12, 12]}
-            placement="top-end"
-            render={(attrs) => (
-                <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
-                    <PopperWrapper className={cx('menu-popper')}>
-                        {history.length > 1 && (
-                            <Header
-                                title={current?.title}
-                                onBack={() => {
-                                    setHistory((prev) => {
-                                        let newState;
-                                        newState = [...prev];
-                                        newState.splice(-1, 1);
+        <div>
+            <HeadlessTippy
+                interactive={true}
+                hideOnClick={false}
+                delay={[null, 600]}
+                offset={[12, 12]}
+                placement="top-end"
+                render={(attrs) => (
+                    <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
+                        <PopperWrapper className={cx('menu-popper')}>
+                            {history.length > 1 && (
+                                <Header
+                                    title={current?.title}
+                                    onBack={() => {
+                                        setHistory((prev) => {
+                                            let newState;
+                                            newState = [...prev];
+                                            newState.splice(-1, 1);
 
-                                        return newState;
-                                    });
-                                }}
-                            ></Header>
-                        )}
-                        {renderItems()}
-                    </PopperWrapper>
-                </div>
-            )}
-            onHide={() => setHistory((prev) => prev.slice(0, 1))}
-        >
-            {children}
-        </Tippy>
+                                            return newState;
+                                        });
+                                    }}
+                                ></Header>
+                            )}
+                            <div className={cx('menu-body')}>{renderItems()}</div>
+                        </PopperWrapper>
+                    </div>
+                )}
+                onHide={() => setHistory((prev) => prev.slice(0, 1))}
+            >
+                {children}
+            </HeadlessTippy>
+        </div>
     );
 }
 

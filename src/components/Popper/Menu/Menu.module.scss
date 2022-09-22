@@ -17,10 +17,18 @@
         border: none;
         justify-content: flex-start;
         margin-left: 0;
+        &:hover {
+            background-color: rgba(22, 24, 35, 0.06);
+        }
     }
 
     .separate {
         border-top: 1px solid rgba(22, 24, 35, 0.12);
+    }
+
+    .menu-body {
+        max-height: 590px;
+        overflow: hidden auto;
     }
 }
 
@@ -28,6 +36,7 @@
 
 .header {
     display: flex;
+    flex-shrink: 0;
     -webkit-box-align: center;
     align-items: center;
     position: relative;
