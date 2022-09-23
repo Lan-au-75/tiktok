@@ -172,9 +172,9 @@ function Header() {
                             <Button leftIcon={<FontAwesomeIcon icon={faPlus} />}>Upload</Button>
 
                             <Tippy delay={[0, 200]} content="Messages" placement="bottom">
-                                <button className={cx('action-btn')}>
+                                <a href="/messages?lang=en" className={cx('action-btn')} onDragStart={(e) => e}>
                                     <MessagesIcon></MessagesIcon>
-                                </button>
+                                </a>
                             </Tippy>
 
                             <Tippy content="Inbox" placement="bottom">

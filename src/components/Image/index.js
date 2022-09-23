@@ -1,10 +1,11 @@
-import { forwardRef, useState, useRef } from 'react';
+import PropTypes from 'prop-types';
+import { forwardRef, useState } from 'react';
 import classNames from 'classnames';
 
 import styles from './Image.module.scss';
 import images from '~/assets/images';
 
-function Image({ src, alt, className, fallBack: customFallBack = images.noImage, ...props }, ref) {
+const Image = forwardRef(({ src, alt, className, fallBack: customFallBack = images.noImage, ...props }, ref) => {
     const [fallBack, setFallBack] = useState('');
 
     const handleError = () => {
@@ -26,6 +27,13 @@ function Image({ src, alt, className, fallBack: customFallBack = images.noImage,
             onDragStart={handleDragStart}
         />
     );
-}
+});
 
-export default forwardRef(Image);
+Image.propTypes = {
+    src: PropTypes.string,
+    alt: PropTypes.string,
+    className: PropTypes.string,
+    fallBack: PropTypes.string,
+};
+
+export default Image;

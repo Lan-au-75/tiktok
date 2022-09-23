@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { useState } from 'react';
@@ -70,5 +71,11 @@ function Menu({ children, items = [], onChange = () => {} }) {
         </div>
     );
 }
+
+Menu.propTypes = {
+    children: PropTypes.node.isRequired,
+    items: PropTypes.array,
+    onChange: PropTypes.func,
+};
 
 export default Menu;

@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import AccountItem from '~/components/AccountItem';
 import * as searchServices from '~/services/searchService';
-import { useDebounce } from '~/components/hook';
+import { useDebounce } from '~/hooks';
 import { SearchIcon } from '~/components/Icons';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './Search.module.scss';
@@ -73,7 +73,7 @@ function Search() {
                             <h4 className={cx('search-label')}>Account</h4>
 
                             {searchAccount.map((account) => (
-                                <AccountItem onClick={handleAccountItem} key={account.id} data={account}></AccountItem>
+                                <AccountItem key={account.id} data={account} onClick={handleAccountItem}></AccountItem>
                             ))}
                         </PopperWrapper>
                     </div>
