@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightToBracket, faEllipsisVertical, faGear, faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -14,7 +15,7 @@ import Menu from '~/components/Popper/Menu';
 import { InboxIcon, MessagesIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../Search';
-import routersConfig from '~/config/routers';
+import config from '~/config';
 
 const cx = classNames.bind(styles);
 
@@ -139,6 +140,8 @@ const USERMENU = [
 function Header() {
     const currentUser = true;
 
+    const imgRef = useRef();
+
     const handleMenuChange = (menuIem) => {
         switch (menuIem.type) {
             case 'Language':
@@ -151,8 +154,14 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={routersConfig.home} className={cx('header-left')}>
-                    <img src={images.logo} alt="logo-Tiktok" style={{ cursor: 'pointer' }} />
+                <Link to={config.routers.home} className={cx('header-left')}>
+                    <img
+                        ref={imgRef}
+                        src={images.logo}
+                        alt="logo-Tiktok"
+                        style={{ cursor: 'pointer' }}
+                        draggable={false}
+                    />
                 </Link>
 
                 <Search></Search>

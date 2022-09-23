@@ -1,4 +1,4 @@
-import { forwardRef, useState } from 'react';
+import { forwardRef, useState, useRef } from 'react';
 import classNames from 'classnames';
 
 import styles from './Image.module.scss';
@@ -11,14 +11,19 @@ function Image({ src, alt, className, fallBack: customFallBack = images.noImage,
         setFallBack(customFallBack);
     };
 
+    const handleDragStart = (e) => {
+        e.preventDefault();
+    };
+
     return (
         <img
             className={classNames(styles.wrapper, className)}
             {...props}
             ref={ref}
             src={fallBack || src}
-            onError={handleError}
             alt={alt}
+            onError={handleError}
+            onDragStart={handleDragStart}
         />
     );
 }

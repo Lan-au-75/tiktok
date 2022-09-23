@@ -1,8 +1,8 @@
 // routers
-import routersConfig from '~/config/routers';
+import config from '~/config';
 
 // Layouts
-import { HeaderOnly } from '~/components/Layouts';
+import { HeaderOnly } from '~/layouts';
 
 // Pages
 import Home from '~/pages/Home';
@@ -12,11 +12,11 @@ import Upload from '~/pages/Upload';
 import Search from '~/pages/Search';
 
 const publicRouter = [
-    { path: routersConfig.home, element: Home },
-    { path: routersConfig.following, element: Following },
-    { path: routersConfig.profile, element: Profile },
-    { path: routersConfig.upload, element: Upload, layout: HeaderOnly },
-    { path: routersConfig.search, element: Search, layout: null },
+    { path: config.routers.home, element: Home },
+    { path: config.routers.following, element: Following },
+    { path: config.routers.profile, element: Profile },
+    { path: config.routers.upload, element: Upload, layout: HeaderOnly },
+    { path: config.routers.search, element: Search, layout: null },
 ];
 
 const privateRoutes = [];

@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 import { useEffect, useRef, useState } from 'react';
 
 import AccountItem from '~/components/AccountItem';
-import * as searchServices from '~/apiServices/searchServices';
+import * as searchServices from '~/services/searchService';
 import { useDebounce } from '~/components/hook';
 import { SearchIcon } from '~/components/Icons';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
