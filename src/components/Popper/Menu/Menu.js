@@ -35,6 +35,32 @@ function Menu({ children, items = [], onChange = () => {} }) {
         });
     };
 
+    const renderResults = (attrs) => (
+        <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
+            <PopperWrapper className={cx('menu-popper')}>
+                {history.length > 1 && (
+                    <Header
+                        title={current?.title}
+                        onBack={() => {
+                            setHistory((prev) => {
+                                let newState;
+                                newState = [...prev];
+                                newState.splice(-1, 1);
+
+                                return newState;
+                            });
+                        }}
+                    ></Header>
+                )}
+                <div className={cx('menu-body')}>{renderItems()}</div>
+            </PopperWrapper>
+        </div>
+    );
+
+    const handleReset = () => {
+        setHistory((prev) => prev.slice(0, 1));
+    };
+
     return (
         <div>
             <HeadlessTippy
@@ -43,28 +69,8 @@ function Menu({ children, items = [], onChange = () => {} }) {
                 delay={[null, 600]}
                 offset={[12, 12]}
                 placement="top-end"
-                render={(attrs) => (
-                    <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
-                        <PopperWrapper className={cx('menu-popper')}>
-                            {history.length > 1 && (
-                                <Header
-                                    title={current?.title}
-                                    onBack={() => {
-                                        setHistory((prev) => {
-                                            let newState;
-                                            newState = [...prev];
-                                            newState.splice(-1, 1);
-
-                                            return newState;
-                                        });
-                                    }}
-                                ></Header>
-                            )}
-                            <div className={cx('menu-body')}>{renderItems()}</div>
-                        </PopperWrapper>
-                    </div>
-                )}
-                onHide={() => setHistory((prev) => prev.slice(0, 1))}
+                render={renderResults}
+                onHide={handleReset}
             >
                 {children}
             </HeadlessTippy>

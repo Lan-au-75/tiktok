@@ -4,18 +4,18 @@ import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 import { useEffect, useRef, useState } from 'react';
 
-import AccountItem from '~/components/AccountItem';
-import * as searchServices from '~/services/searchService';
-import { useDebounce } from '~/hooks';
 import { SearchIcon } from '~/components/Icons';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
+import { useDebounce } from '~/hooks';
+import * as searchServices from '~/services/searchService';
+import SearchResults from './Results';
 import styles from './Search.module.scss';
 
 const cx = classNames.bind(styles);
 
 function Search() {
     const [searchValue, setSearchValue] = useState('');
-    const [searchAccount, setSearchAccount] = useState([]);
+    const [searchResults, setSearchResults] = useState([]);
     const [showResult, setShowResult] = useState(true);
     const [loading, setLoading] = useState(false);
 
@@ -24,7 +24,7 @@ function Search() {
 
     useEffect(() => {
         if (!debounceValue.trim()) {
-            setSearchAccount([]);
+            setSearchResults([]);
             return;
         }
 
@@ -32,7 +32,7 @@ function Search() {
             setLoading(true);
 
             const results = await searchServices.search(debounceValue);
-            setSearchAccount(results);
+            setSearchResults(results);
             setLoading(false);
         };
 
@@ -45,13 +45,13 @@ function Search() {
 
     const handleClear = () => {
         setSearchValue('');
-        setSearchAccount([]);
+        setSearchResults([]);
         inputRef.current.focus();
     };
 
     const handleAccountItem = () => {
         setSearchValue('');
-        setSearchAccount([]);
+        setSearchResults([]);
     };
 
     const handleChange = (e) => {
@@ -65,16 +65,14 @@ function Search() {
     return (
         <div>
             <HeadlessTippy
-                visible={showResult && searchAccount.length > 0}
+                visible={showResult && searchResults.length > 0}
                 interactive={true}
                 render={(attrs) => (
                     <div className={cx('search-results')} tabIndex="-1" {...attrs}>
                         <PopperWrapper>
                             <h4 className={cx('search-label')}>Account</h4>
 
-                            {searchAccount.map((account) => (
-                                <AccountItem key={account.id} data={account} onClick={handleAccountItem}></AccountItem>
-                            ))}
+                            <SearchResults results={searchResults} onClick={handleAccountItem}></SearchResults>
                         </PopperWrapper>
                     </div>
                 )}
