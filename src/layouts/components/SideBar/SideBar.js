@@ -1,4 +1,3 @@
-//module scss
 import classNames from 'classnames/bind';
 
 import config from '~/config';
@@ -16,10 +15,18 @@ import {
 const cx = classNames.bind(styles);
 
 function SideBar() {
+    const handleClickOnTop = () => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
+        });
+    };
+
     return (
         <div className={cx('divSideNav')}>
             <aside className={cx('wrapper')}>
-                <Menu>
+                <Menu onClick={handleClickOnTop}>
                     <MenuItem
                         title="For You"
                         to={config.routers.home}
