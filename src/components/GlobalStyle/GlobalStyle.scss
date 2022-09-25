@@ -36,6 +36,10 @@ body {
     color: var(--text-color);
     -webkit-tap-highlight-color: transparent;
     overflow-y: overlay;
+
+    &.hidden {
+        overflow: hidden;
+    }
 }
 
 // Scrollbar Css

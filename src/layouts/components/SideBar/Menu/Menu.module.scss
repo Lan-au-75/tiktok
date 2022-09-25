@@ -1,0 +1,49 @@
+// Menu
+.wrapper {
+    padding: 0;
+    margin-bottom: 8px;
+}
+
+// Menu Item
+.menu-item {
+    display: flex;
+    align-items: center;
+
+    padding: 8px;
+    color: var(--text-color);
+    border-radius: 4px;
+
+    line-height: normal;
+    transition: background-color ease-in-out 200ms;
+
+    &.active {
+        color: var(--primary);
+
+        & .icon {
+            display: none;
+        }
+
+        & .active-icon {
+            display: flex;
+        }
+    }
+
+    &:hover {
+        background-color: #16182308;
+    }
+}
+
+.title {
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 25px;
+    margin-left: 8px;
+}
+
+.active-icon {
+    display: none;
+}
+
+.icon {
+    display: flex;
+}

@@ -25,6 +25,7 @@ function Menu({ children, items = [], onChange = () => {} }) {
                     data={item}
                     onClick={() => {
                         if (isParent) {
+                            document.body.classList.add('hidden');
                             setHistory((prev) => [...prev, item.children]);
                         } else {
                             onChange(item);
@@ -58,6 +59,7 @@ function Menu({ children, items = [], onChange = () => {} }) {
     );
 
     const handleReset = () => {
+        document.body.classList.remove('hidden');
         setHistory((prev) => prev.slice(0, 1));
     };
 
