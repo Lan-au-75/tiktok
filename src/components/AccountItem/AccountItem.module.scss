@@ -24,8 +24,7 @@
     }
 
     .info {
-        // flex: 1;
-        width: 150px;
+        flex: 1;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -42,9 +41,10 @@
             color: var(--text-color);
             font-weight: 600;
         }
-        * {
+        svg {
             color: #20d5ec;
             font-size: 1.4rem;
+            margin-left: 4px;
         }
     }
 

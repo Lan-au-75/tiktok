@@ -1,0 +1,86 @@
+// SuggestedAccounts
+.wrapper {
+    border-top: 1px solid #e3e3e4;
+    padding: 16px 0;
+    color: rgba(22, 24, 35, 0.75);
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 20px;
+    position: relative;
+
+    .label {
+        padding: 0 8px;
+        margin-bottom: 8px;
+        font-size: 1.4rem;
+        line-height: 20px;
+    }
+
+    .see-all {
+        display: block;
+        color: var(--primary);
+        font-weight: 600;
+        font-size: 1.4rem;
+        line-height: 20px;
+        padding: 0px 8px;
+        margin-top: 8px;
+        cursor: pointer;
+    }
+}
+
+// AccountItem
+
+.account-item {
+    display: flex;
+    align-items: center;
+    -webkit-box-align: center;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 200ms ease-in-out 0s;
+
+    &:hover {
+        background-color: #16182308;
+    }
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 12px;
+    object-fit: cover;
+}
+
+.item-info {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    max-height: 32px;
+}
+
+.nick-name {
+    color: var(--text-color);
+    font-family: SofiaPro, Arial, Tahoma, PingFangSC, sans-serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 22px;
+    max-width: 260px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    & svg {
+        color: #20d5ec;
+        font-size: 1.4rem;
+        margin-left: 4px;
+        margin-bottom: 2px;
+    }
+}
+
+.full-name {
+    color: #161823bf;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 15px;
+    max-width: 260px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

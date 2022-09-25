@@ -10,6 +10,7 @@ import { useDebounce } from '~/hooks';
 import * as searchServices from '~/services/searchService';
 import SearchResults from './Results';
 import styles from './Search.module.scss';
+import { handleScrollOnTop } from '~/handleEvent';
 
 const cx = classNames.bind(styles);
 
@@ -50,6 +51,8 @@ function Search() {
     };
 
     const handleAccountItem = () => {
+        handleScrollOnTop();
+
         setSearchValue('');
         setSearchResults([]);
     };

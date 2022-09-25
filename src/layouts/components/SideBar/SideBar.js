@@ -11,22 +11,16 @@ import {
     LiveIcon,
     LiveActiveIcon,
 } from '~/components/Icons';
+import SuggestedAccounts from '~/components/SuggestedAccounts';
+import { handleScrollOnTop } from '~/handleEvent';
 
 const cx = classNames.bind(styles);
 
 function SideBar() {
-    const handleClickOnTop = () => {
-        window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: 'smooth',
-        });
-    };
-
     return (
         <div className={cx('divSideNav')}>
             <aside className={cx('wrapper')}>
-                <Menu onClick={handleClickOnTop}>
+                <Menu onClick={handleScrollOnTop}>
                     <MenuItem
                         title="For You"
                         to={config.routers.home}
@@ -46,6 +40,8 @@ function SideBar() {
                         activeIcon={<LiveActiveIcon />}
                     ></MenuItem>
                 </Menu>
+                <SuggestedAccounts label="Suggested accounts" content={'See all'}></SuggestedAccounts>
+                <SuggestedAccounts label="Following accounts" content={'See more'}></SuggestedAccounts>
             </aside>
         </div>
     );
